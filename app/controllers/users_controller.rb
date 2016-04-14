@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :prohibit_user, only: [:new, :create]
 
   def new
     @user = User.new
@@ -7,6 +8,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      log_in(@user)
       respond_to do |format|
         format.html {
           flash[:success] = "User account created!"
