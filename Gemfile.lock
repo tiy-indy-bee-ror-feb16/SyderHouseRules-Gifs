@@ -194,7 +194,6 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass
   byebug
-  coffee-rails (~> 4.1.0)
   giphy
   jbuilder (~> 2.0)
   jquery-rails
