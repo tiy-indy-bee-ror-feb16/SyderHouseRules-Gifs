@@ -29,6 +29,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass'
 gem 'kaminari'
 gem 'giphy'
+gem 'simple_form'
 
 gem 'rails_12factor', group: :production
 gem 'simplecov', :require => false, :group => :test
