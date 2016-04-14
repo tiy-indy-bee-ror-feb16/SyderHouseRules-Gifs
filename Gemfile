@@ -26,6 +26,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootstrap-sass'
 gem 'kaminari'
+gem 'bootstrap-kaminari-views'
 gem 'giphy'
 gem 'simple_form'
 
