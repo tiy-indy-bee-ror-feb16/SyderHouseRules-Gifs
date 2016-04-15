@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password
 
-  has_many :gifs
+  has_many :gifs, dependent: :destroy
 
   validates :username, :email, :bio, :password, presence: true
   validates :username, length: {
@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
                                 }
   validates :username, :email, uniqueness: true
   validate :email_is_valid_format
-  before_validation :downcase_email
+  before_validation :downcase_email, :downcase_username
   before_save :set_default_avatar
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
@@ -31,6 +31,10 @@ class User < ActiveRecord::Base
 
   def downcase_email
     email.downcase!
+  end
+
+  def downcase_username
+    username.downcase!
   end
 
   def set_default_avatar
