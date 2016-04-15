@@ -6,6 +6,20 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
+20.times do
+  User.create!(
+    username: Faker::Name.last_name + "_" + Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: "password",
+    bio: Faker::Hipster.paragraph
+  )
+end
+
 100.times do
-  Gif.create!(url: Giphy.random.image_url.to_s, description: "asdfihasd")
+  Gif.create!(
+    url: Giphy.random.image_url.to_s,
+    description: "asdfihasd",
+    user_id: rand(1..20)
+  )
 end
