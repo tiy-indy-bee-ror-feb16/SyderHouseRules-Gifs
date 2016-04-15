@@ -11,5 +11,7 @@
   <div class="container" id="main">
     <%= yield %>
   </div>
+  <%= render partial: 'modal', locals: {title: "Gif Info", label: "gif_show"} %>
+
 </body>
 </html>
