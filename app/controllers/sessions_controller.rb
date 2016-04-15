@@ -8,7 +8,6 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(username: params[:session][:username].downcase)
     if user && user.authenticate(params[:session][:password])
-      puts "In the create If block"
       session[:user_id] = user.username
       respond_to do |format|
         format.html {
@@ -18,7 +17,6 @@ class SessionsController < ApplicationController
         format.js { }
       end
     else
-      puts "Blah blah"
       flash[:danger] = "That username/password combo is incorrect. Try again"
       render :new
     end
