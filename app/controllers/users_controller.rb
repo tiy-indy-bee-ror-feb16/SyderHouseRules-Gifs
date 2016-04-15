@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       end
     else
       render :new
-    else
+    end
   end
 
   private

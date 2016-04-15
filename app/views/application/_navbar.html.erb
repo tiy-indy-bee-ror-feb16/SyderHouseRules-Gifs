@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand page-scroll" href="#page-top">HieroGiffics</a>
+      <a class="navbar-brand page-scroll" id="home-link" href="/">HieroGiffics</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -23,10 +23,10 @@
           </li>
         <% else %>
           <li>
-            <a class="page-scroll" href="#">Log In</a>
+            <%= link_to "Log In", login_path, class: "page-scroll" %>
           </li>
           <li>
-            <a class="page-scroll" href="#">Sign Up</a>
+            <%= link_to "Sign Up", new_user_path, class: "page-scroll" %>
           </li>
         <% end %>
       </ul>

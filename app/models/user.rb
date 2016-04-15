@@ -21,10 +21,11 @@ class User < ActiveRecord::Base
   before_validation :downcase_email
   before_save :set_default_avatar
 
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
+
   private
 
   def email_is_valid_format
-    VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
     errors.add(:email, "Not a valid email address") unless self.email =~ VALID_EMAIL_REGEX
   end
 
