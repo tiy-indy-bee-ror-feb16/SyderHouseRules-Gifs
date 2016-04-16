@@ -30,7 +30,6 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "validates user password contains at least four unique characters" do
-    skip
     @user = @@users[:invalid][:easy_password].sample
     refute @user.valid?, "#{@user.username}'s password was not validated for a minimum of four unique characters"
   end
