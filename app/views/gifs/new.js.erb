@@ -1,0 +1,2 @@
+$("#modal").replaceWith("<%= j(render partial: 'modal', locals: {title: 'New Gif', label: 'modal'}) %>")
+$("#modal-body").html("<%= escape_javascript(render partial: 'gif_new', locals: {gif: @gif}) %>")
