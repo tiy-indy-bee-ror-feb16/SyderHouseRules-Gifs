@@ -14,7 +14,8 @@ class ActiveSupport::TestCase
     valid_hash =  {
                     username: Faker::Name.last_name + "_" + Faker::Name.last_name,
                     email: Faker::Internet.email,
-                    password: Faker::Internet.password(8)
+                    password: Faker::Internet.password(8),
+                    bio: "Some bio"
                   }
     if valid
       valid_hash
@@ -41,7 +42,8 @@ class ActiveSupport::TestCase
       no_username: [],
       dup_email: [],
       bad_format_email: [],
-      no_email: []
+      no_email: [],
+      no_avatar: [] # This is technically a valid user configuration, so would be good to go somewhere else
     }
   }
 
@@ -62,7 +64,7 @@ class ActiveSupport::TestCase
   end
 
   3.times do # duplicate username
-    @@users[:invalid][:dup_username].push(User.new(self.user_hash(key: :username, inserted_value: "Bob_the_Great")))
+    @@users[:invalid][:dup_username].push(User.create(self.user_hash(key: :username, inserted_value: "Bob_the_Great")))
   end
 
   3.times do # no username
@@ -70,11 +72,15 @@ class ActiveSupport::TestCase
   end
 
   3.times do # duplicate email
-    @@users[:invalid][:dup_email].push(User.new(self.user_hash(key: :email, inserted_value: "wombat@wombat.com")))
+    @@users[:invalid][:dup_email].push(User.create(self.user_hash(key: :email, inserted_value: "wombat@wombat.com")))
   end
 
   3.times do # no email
     @@users[:invalid][:no_email].push(User.new(self.user_hash(key: :email)))
+  end
+
+  3.times do # no avatar
+    @@users[:invalid][:no_avatar].push(User.new(self.user_hash(key: :avatar)))
   end
 
   @@valid_user = @@users[:valid].sample

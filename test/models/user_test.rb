@@ -33,4 +33,13 @@ class UserTest < ActiveSupport::TestCase
     @user = @@users[:invalid][:easy_password].sample
     refute @user.valid?, "#{@user.username}'s password was not validated for a minimum of four unique characters"
   end
+
+  test "users with no avatar are assigned a default when saved" do
+    @user = @@users[:invalid][:no_avatar].sample
+    puts @user
+    @user.save!
+    refute User.find_by(email: @user.email).avatar.nil?, "#{@user.username} was not given a default avatar"
+  end
+
+
 end
