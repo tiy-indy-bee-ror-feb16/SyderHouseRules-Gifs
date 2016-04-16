@@ -32,12 +32,16 @@ class ActiveSupport::TestCase
     valid: [],
     invalid: {
       short_password: [],
+      long_password: [],
       easy_password: [],
       no_password: [],
+      short_username: [],
+      long_username: [],
       dup_username: [],
       no_username: [],
-      no_email: [],
-      dup_email: []
+      dup_email: [],
+      bad_format_email: [],
+      no_email: []
     }
   }
 
