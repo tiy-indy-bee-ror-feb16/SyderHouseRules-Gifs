@@ -48,7 +48,7 @@ class ActiveSupport::TestCase
   }
 
   50.times do # valid user
-    @@users[:valid].push(User.new(self.user_hash(valid: true)))
+    @@users[:valid].push(User.create(self.user_hash(valid: true)))
   end
 
   3.times do # short password

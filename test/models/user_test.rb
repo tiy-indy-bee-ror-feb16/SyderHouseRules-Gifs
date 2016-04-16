@@ -5,10 +5,6 @@ class UserTest < ActiveSupport::TestCase
     @valid_user = @@users[:valid].sample
   end
 
-  def teardown
-    # puts 'runs after each test'
-  end
-
   test "validates email presence" do
     @user = @@users[:invalid][:no_email].sample
     refute @user.valid?, "#{@user.username}'s e-mail was not validated for presence"
@@ -26,7 +22,7 @@ class UserTest < ActiveSupport::TestCase
 
   test "validates user password is at least eight characters long" do
     @user = @@users[:invalid][:short_password].sample
-    refute @user.valid? , "#{@user.username}'s password was not validated for length"
+    refute @user.valid? , "#{@user.username}'s password was not validated for length, it is only #{@user.password.length} characters long"
   end
 
   test "validates user password contains at least four unique characters" do
@@ -36,10 +32,8 @@ class UserTest < ActiveSupport::TestCase
 
   test "users with no avatar are assigned a default when saved" do
     @user = @@users[:invalid][:no_avatar].sample
-    puts @user
-    @user.save!
+    @user.save
     refute User.find_by(email: @user.email).avatar.nil?, "#{@user.username} was not given a default avatar"
   end
-
 
 end
