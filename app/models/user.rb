@@ -30,11 +30,11 @@ class User < ActiveRecord::Base
   end
 
   def downcase_email
-    email.downcase! if email
+    email.downcase!
   end
 
   def downcase_username
-    username.downcase! if username
+    username.downcase!
   end
 
   def set_default_avatar

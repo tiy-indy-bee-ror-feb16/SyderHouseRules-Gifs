@@ -42,35 +42,35 @@ class ActiveSupport::TestCase
   }
 
   50.times do # valid user
-    @@users[:valid].push(User.create(self.user_hash(valid: true)))
+    @@users[:valid].push(User.new(self.user_hash(valid: true)))
   end
 
   3.times do # short password
-    @@users[:invalid][:short_password].push(User.create(self.user_hash(key: :password, inserted_value: Faker::Internet.password(rand(1..7)))))
+    @@users[:invalid][:short_password].push(User.new(self.user_hash(key: :password, inserted_value: Faker::Internet.password(rand(1..7)))))
   end
 
   3.times do # easy password
-    @@users[:invalid][:easy_password].push(User.create(self.user_hash(key: :password, inserted_value: "baagaaab")))
+    @@users[:invalid][:easy_password].push(User.new(self.user_hash(key: :password, inserted_value: "baagaaab")))
   end
 
   3.times do # no password
-    @@users[:invalid][:no_password].push(User.create(self.user_hash(key: :password)))
+    @@users[:invalid][:no_password].push(User.new(self.user_hash(key: :password)))
   end
 
   3.times do # duplicate username
-    @@users[:invalid][:dup_username].push(User.create(self.user_hash(key: :username, inserted_value: "Bob_the_Great")))
+    @@users[:invalid][:dup_username].push(User.new(self.user_hash(key: :username, inserted_value: "Bob_the_Great")))
   end
 
   3.times do # no username
-    @@users[:invalid][:no_username].push(User.create(self.user_hash(key: :username)))
+    @@users[:invalid][:no_username].push(User.new(self.user_hash(key: :username)))
   end
 
   3.times do # duplicate email
-    @@users[:invalid][:dup_email].push(User.create(self.user_hash(key: :email, inserted_value: "wombat@wombat.com")))
+    @@users[:invalid][:dup_email].push(User.new(self.user_hash(key: :email, inserted_value: "wombat@wombat.com")))
   end
 
   3.times do # no email
-    @@users[:invalid][:no_email].push(User.create(self.user_hash(key: :email)))
+    @@users[:invalid][:no_email].push(User.new(self.user_hash(key: :email)))
   end
 
   @@valid_user = @@users[:valid].sample
