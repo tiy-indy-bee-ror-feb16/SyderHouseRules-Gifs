@@ -11,13 +11,13 @@ class ActiveSupport::TestCase
   # fixtures :all
 
   def self.user_hash(valid: false, inserted_value: nil, key: nil)
-    valid_hash =  {
-                    username: Faker::Name.last_name + "_" + Faker::Name.last_name,
-                    email: Faker::Internet.email,
-                    password: Faker::Internet.password(8),
-                    bio: "Some bio"
+    valid_hash = {
+      username: Faker::Name.last_name + "_" + Faker::Name.last_name,
+      email: Faker::Internet.email,
+      password: Faker::Internet.password(8),
+      bio: "Some bio"
     }
-    
+
     if valid
       valid_hash
     else
@@ -28,6 +28,13 @@ class ActiveSupport::TestCase
       end
     valid_hash
     end
+  end
+
+  def self.gif_hash(valid: false, inserted_value: nil, key: nil)
+    valid_hash = {
+      description: "Some gif",
+      url: Giphy.random.imag_url.to_s
+    }
   end
 
   @@users = {
@@ -48,8 +55,21 @@ class ActiveSupport::TestCase
     }
   }
 
+  @@gifs = {
+    valid: [],
+    invalid: {
+      no_description: [],
+      no_url: []
+    }
+  }
+
   50.times do # valid user
-    @@users[:valid].push(User.create(user_hash(valid: true)))
+    @user = User.create(user_hash(valid: true))
+    @@users[:valid].push(@user)
+      3.times do
+        current_user = @user
+        Gif.create(description: "Some gif", url: Giphy.random.image_url.to_s)
+      end
   end
 
   3.times do # short password
