@@ -3,6 +3,10 @@ class SessionsController < ApplicationController
   before_action :require_user, only: [:destroy]
 
   def new
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
