@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>HieroGiffics</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-  <%= render 'navbar' %>
-  <div class="container" id="main">
-    <%= yield %>
-  </div>
-  <%= render partial: 'modal', locals: {title: "Gif Info", label: "gif_show"} %>
-
-</body>
+  <head>
+    <title>HieroGiffics</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    <%= render 'navbar' %>
+    <div class="container" id="main">
+      <%= yield %>
+    </div>
+    <%= render partial: 'modal' %>
+    <%= render partial: 'modal', locals: { title: "Submit a New Gif", label: "gif_new" } %>
+  </body>
 </html>

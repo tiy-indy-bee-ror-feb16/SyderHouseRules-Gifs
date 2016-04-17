@@ -15,6 +15,10 @@ class GifsController < ApplicationController
 
   def new
     @gif = Gif.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
