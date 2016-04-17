@@ -7,7 +7,9 @@
   <h5>Uploaded At:</h5>
   <p><%= gif.created_at %></p>
 </div>
+<% if current_user %>
 <div id="voting" class="pull-right">
   <%= image_tag("up-arrow", class: "vote-arrow", id: "up-arrow") %>
   <%= image_tag("down-arrow", class: "vote-arrow", id: "down-arrow") %>
 </div>
+<% end %>
