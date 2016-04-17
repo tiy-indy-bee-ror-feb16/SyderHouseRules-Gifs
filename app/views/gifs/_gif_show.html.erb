@@ -13,8 +13,10 @@
       <p><%= gif.votes.count %></p>
     </div>
     <div id="vote-arrows">
-      <%= image_tag("up-arrow", class: "vote-arrow", id: "up-arrow") %>
-      <%= image_tag("down-arrow", class: "vote-arrow", id: "down-arrow") %>
+      <%= link_to (image_tag("up-arrow", class: "vote-arrow", id: "up-arrow")),
+      votes_path(:votes => { :gif => gif, :vote_type => "upvote" }) %>
+      <%= link_to (image_tag("down-arrow", class: "vote-arrow", id: "down-arrow")),
+      votes_path(:votes => { :gif => gif, :vote_type => "downvote"}) %>
     </div>
   </div>
 <% end %>
