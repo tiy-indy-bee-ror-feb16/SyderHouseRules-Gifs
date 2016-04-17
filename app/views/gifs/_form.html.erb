@@ -1,4 +1,4 @@
-<%= simple_form_for @gif do |f| %>
+<%= simple_form_for @gif, remote: true do |f| %>
   <%= f.input :url %>
   <%= f.input :description %>
   <%= f.button :submit %>
