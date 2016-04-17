@@ -2,7 +2,7 @@ class GifsController < ApplicationController
   before_action :require_user, except: [:index, :show]
 
   def index
-    @gifs = Gif.plusminus_tally.page(params[:page])
+    @gifs = Gif.by_score.page(params[:page])
   end
 
   def show
