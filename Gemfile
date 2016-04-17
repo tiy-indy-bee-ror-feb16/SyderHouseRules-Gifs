@@ -31,6 +31,7 @@ gem 'giphy'
 gem 'simple_form'
 gem 'faker'
 gem 'thumbs_up'
+gem 'acts-as-taggable-on', '~> 3.4'
 
 gem 'rails_12factor', group: :production
 gem 'simplecov', :require => false, :group => :test
