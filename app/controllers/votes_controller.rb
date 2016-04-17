@@ -2,25 +2,31 @@ class VotesController < ApplicationController
   before_action :require_user
 
   def create
-    @gif = (params(:gif))
-    @type = (params(:vote_type))
-    if @type == "upvote" && !current_user.voted_for?(@gif)
+    @gif = Gif.find(params[:gif_id])
+    if current_user.voted_for?(@gif)
+      current_user.unvote_for(@gif)
+    else
+      current_user.unvote_for(@gif)
       current_user.vote_for(@gif)
-    elsif @type == "downvote" && !current_user.voted_against?(@gif)
-      current_user.vote_against(@gif)
     end
-    render :nothing => true, :status => :ok
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js { }
+    end
   end
 
   def destroy
-    @gif = (params(:gif))
-    current_user.unvote_for(@gif)
-    render :nothing => true, :status => :ok
+    @gif = Gif.find(params[:gif_id])
+    if current_user.voted_against?(@gif)
+      current_user.unvote_for(@gif)
+    else
+      current_user.unvote_for(@gif)
+      current_user.vote_against(@gif)
+    end
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js { render :create }
+    end
   end
 
-  private
-
-  def vote_params
-    params.require(:vote).permit(:gif, :vote_type)
-  end
 end

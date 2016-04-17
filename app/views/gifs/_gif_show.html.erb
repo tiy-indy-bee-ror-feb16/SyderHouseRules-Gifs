@@ -10,13 +10,15 @@
 <% if current_user %>
   <div id="voting" class="pull-right">
     <div id="vote-count">
-      <p><%= gif.votes.count %></p>
+      <p><%= gif.plusminus %></p>
     </div>
     <div id="vote-arrows">
-      <%= link_to (image_tag("up-arrow", class: "vote-arrow", id: "up-arrow")),
-      votes_path(:votes => { :gif => gif, :vote_type => "upvote" }) %>
-      <%= link_to (image_tag("down-arrow", class: "vote-arrow", id: "down-arrow")),
-      votes_path(:votes => { :gif => gif, :vote_type => "downvote"}) %>
+      <%= link_to gif_upvote_path(gif), remote: true do %>
+        <%= image_tag("up-arrow", class: "vote-arrow", id: "up-arrow") %>
+      <% end %>
+      <%= link_to gif_downvote_path(gif), remote: true do %>
+        <%= image_tag("down-arrow", class: "vote-arrow", id: "down-arrow") %>
+      <% end %>
     </div>
   </div>
 <% end %>
