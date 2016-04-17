@@ -2,7 +2,7 @@ class GifsController < ApplicationController
   before_action :require_user, except: [:index, :show]
 
   def index
-    @gifs = Gif.all.order(created_at: :desc).page(params[:page])
+    @gifs = Gif.order(created_at: :desc).page(params[:page])
   end
 
   def show

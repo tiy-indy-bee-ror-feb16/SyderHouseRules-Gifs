@@ -1,0 +1,18 @@
+#voting {
+  position: relative;
+  bottom: 8em;
+}
+
+#vote-count {
+  text-align: center;
+  font-size: 3em;
+  p {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.vote-arrow {
+  height: 3em;
+  width: 3em;
+}
