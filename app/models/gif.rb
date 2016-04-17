@@ -8,4 +8,9 @@ class Gif < ActiveRecord::Base
   validates :url, format: { with: /\Ahttps?:\/\// }
   validates :url, format: { with: /.gif\Z/ }
 
+  scope :by_score, -> { joins("LEFT OUTER JOIN votes ON gifs.id = votes.voteable_id AND votes.voteable_type = 'Gif'").
+                   group('gifs.id').
+                   order('SUM(CASE votes.vote WHEN true THEN 1 WHEN false THEN -1 ELSE 0 END) DESC')
+                 }
+
 end
