@@ -7,5 +7,6 @@ Rails.application.routes.draw do
 
   resources :gifs
   resources :users
+  resources :votes, only: [:create, :destroy]
 
 end
