@@ -5,8 +5,11 @@ Rails.application.routes.draw do
   post   '/login'   => 'sessions#create', as: :login_create
   get    '/logout'  => 'sessions#destroy', as: :logout
 
-  resources :gifs
+  resources :gifs do
+    get '/upvote'   => 'votes#upvote'
+    get '/downvote' => 'votes#downvote'
+  end
+
   resources :users
-  resources :votes, only: [:create, :destroy]
 
 end
