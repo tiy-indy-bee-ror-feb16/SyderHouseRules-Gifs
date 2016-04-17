@@ -23,3 +23,16 @@ end
     user_id: rand(1..20)
   )
 end
+
+20.times do |i|
+  array = (1..100).to_a
+  50.times do
+    Vote.create!(
+      vote: true,
+      voteable_id: array.delete(array.sample),
+      voteable_type: 'Gif',
+      voter_id: i,
+      voter_type: 'User'
+    )
+  end
+end
