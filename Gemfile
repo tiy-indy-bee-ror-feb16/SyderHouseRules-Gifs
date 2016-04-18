@@ -44,6 +44,11 @@ gem 'simplecov', :require => false, :group => :test
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'rspec-rails', '2.14.2'
+  gem 'capybara', '2.4.1'
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'database_cleaner', '1.3.0'
+  gem 'poltergeist'
 end
 
 group :development do
