@@ -1,6 +1,6 @@
 <div class="row gif-row" id="gif_row">
   <%= render @gifs %>
 </div>
-<div class="text-center">
-  <%= paginate @gifs, :theme => 'twitter-bootstrap-3' %>
+<div class="text-center", id="paginator">
+  <%= paginate @gifs, :theme => 'twitter-bootstrap-3', remote: true %>
 </div>
