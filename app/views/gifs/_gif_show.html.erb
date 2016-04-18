@@ -6,6 +6,10 @@
   <p><%= gif.user.username %></p>
   <h5>Uploaded At:</h5>
   <p><%= gif.created_at %></p>
+  <% if gif.tag_list.any? %>
+    <h5>Tag List:</h5>
+    <p><%= gif.tag_list %></p>
+  <% end %>
 </div>
 <% if current_user %>
   <div id="voting" class="pull-right">
