@@ -30,6 +30,7 @@ gem 'bootstrap-kaminari-views'
 gem 'giphy'
 gem 'simple_form'
 gem 'faker'
+gem 'thumbs_up'
 
 gem 'rails_12factor', group: :production
 gem 'simplecov', :require => false, :group => :test
