@@ -1,5 +1,6 @@
 <%= simple_form_for @gif, remote: true do |f| %>
   <%= f.input :url %>
   <%= f.input :description %>
+  <%= f.input :tag_list, placeholder: "Tags start with '#' and are separated by commas. Ex - #fun, #awesome" %>
   <%= f.button :submit %>
 <% end %>
