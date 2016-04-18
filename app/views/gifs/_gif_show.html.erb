@@ -13,12 +13,7 @@
       <p><%= gif.plusminus %></p>
     </div>
     <div id="vote-arrows">
-      <%= link_to gif_upvote_path(gif), remote: true do %>
-        <%= image_tag("up-arrow.svg", class: "vote-arrow", id: "up-arrow") %>
-      <% end %>
-      <%= link_to gif_downvote_path(gif), remote: true do %>
-        <%= image_tag("down-arrow.svg", class: "vote-arrow", id: "down-arrow") %>
-      <% end %>
+      <%= render partial: 'vote_arrows', locals: { voteable: gif } %>
     </div>
   </div>
 <% end %>

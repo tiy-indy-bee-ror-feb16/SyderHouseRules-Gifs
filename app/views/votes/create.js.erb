@@ -1,1 +1,2 @@
 $('#vote-count').html('<p><%=j @gif.plusminus.to_s %></p>')
+$('#vote-arrows').html('<%=j render partial: "vote_arrows", locals: { voteable: @gif } %>')
