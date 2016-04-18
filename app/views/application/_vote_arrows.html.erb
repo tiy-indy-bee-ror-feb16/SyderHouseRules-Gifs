@@ -1,0 +1,6 @@
+<%= link_to gif_upvote_path(voteable), remote: true do %>
+  <%= image_tag("up-arrow.svg", class: has_upvote?(voteable), id: "up-arrow") %>
+<% end %>
+<%= link_to gif_downvote_path(voteable), remote: true do %>
+  <%= image_tag("down-arrow.svg", class: has_downvote?(voteable), id: "down-arrow") %>
+<% end %>
