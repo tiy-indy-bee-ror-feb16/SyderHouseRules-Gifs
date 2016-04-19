@@ -4,7 +4,7 @@
     <div class="tag-list">
       <ul class="list-inline">
         <% gif.tag_list.each do |tag| %>
-          <li><%= link_to '#', class: "tag" do %>
+          <li><%= link_to tag_gifs_path(params[:tag] = tag.gsub("#", "")), class: "tag" do %>
             <h5><%= tag %></h5>
           <% end %></li>
         <% end %>
