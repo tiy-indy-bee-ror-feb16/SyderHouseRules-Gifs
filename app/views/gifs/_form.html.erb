@@ -1,7 +1,8 @@
 <%= simple_form_for @gif, remote: true do |f| %>
   <%= f.input :url %>
-  <%= f.input :gif, as: :attachment, label: 'Or, upload a gif ...' %>
+  <%#= f.input :gif, as: :attachment, label: 'Or, upload a gif ...' %>
   <%= f.input :description %>
   <%= f.input :tag_list, placeholder: "Tags start with '#' and are separated by commas. Ex - #fun, #awesome" %>
+  <%= f.attachment_field :gif_image %>
   <%= f.button :submit %>
 <% end %>
