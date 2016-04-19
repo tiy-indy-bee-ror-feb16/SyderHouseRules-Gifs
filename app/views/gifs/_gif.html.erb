@@ -1,5 +1,14 @@
 <div class="col-xs-4 gif-col">
   <%= link_to gif, data: { toggle: "modal", target: "#main_modal", remote: true } do %>
     <img src="<%= gif.url %>" id ="<%= gif.id %>" class="img-responsive gif">
+    <div class="tag-list">
+      <ul class="list-inline">
+        <% gif.tag_list.each do |tag| %>
+          <li><%= link_to '#', class: "tag" do %>
+            <h5><%= tag %></h5>
+          <% end %></li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
 </div>
