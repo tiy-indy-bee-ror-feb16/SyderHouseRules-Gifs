@@ -1,5 +1,6 @@
 <%= simple_form_for @gif, remote: true do |f| %>
   <%= f.input :url %>
+  <%= f.input :gif, as: :attachment, label: 'Or, upload a gif ...' %>
   <%= f.input :description %>
   <%= f.button :submit %>
 <% end %>
