@@ -37,7 +37,6 @@ gem "refile-mini_magick"
 gem 'refile-postgres'
 gem 'remotipart', '~> 1.2'
 
-
 gem 'rails_12factor', group: :production
 gem 'simplecov', :require => false, :group => :test
 

@@ -1,8 +1,9 @@
 class GifsController < ApplicationController
   before_action :require_user, except: [:index, :show]
+  before_action :set_scope, only: [:index]
 
   def index
-    @gifs = Gif.by_score.page(params[:page])
+    @gifs = @scope.by_score.page(params[:page])
   end
 
   def show
@@ -54,6 +55,18 @@ class GifsController < ApplicationController
 
   def gif_params
     params.require(:gif).permit(:url, :description, :tag_list)
+<<<<<<< HEAD
+=======
+  end
+
+  def set_scope
+    if params[:tag]
+      @scope = Gif.tagged_with("#" + params[:tag])
+    else
+      @scope = Gif
+    end
+    @scope
+>>>>>>> 30a291f1dd0c4ed6c808ec86dc756b77e4c8775d
   end
 
 end

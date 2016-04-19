@@ -2,5 +2,6 @@
   <%= f.input :url %>
   <%= f.input :gif, as: :attachment, label: 'Or, upload a gif ...' %>
   <%= f.input :description %>
+  <%= f.input :tag_list, placeholder: "Tags start with '#' and are separated by commas. Ex - #fun, #awesome" %>
   <%= f.button :submit %>
 <% end %>

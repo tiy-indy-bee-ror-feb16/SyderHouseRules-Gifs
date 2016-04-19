@@ -36,3 +36,10 @@ end
     )
   end
 end
+
+tags = %w(#funny #awesome #super #neato #nifty #silly #stupendous #inane)
+200.times do
+  gif = Gif.find(rand(1..100))
+  gif.tag_list.add(tags.sample)
+  gif.save
+end

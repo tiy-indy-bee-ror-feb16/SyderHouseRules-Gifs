@@ -1,6 +1,6 @@
 class Gif < ActiveRecord::Base
   acts_as_voteable
-  # acts_as_taggable
+  acts_as_taggable
   paginates_per 30
   belongs_to :user
   validates :url, :description, presence: true
